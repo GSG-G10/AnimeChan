@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url(../img/BGP.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0px;
+}
+h1 {
+  text-align: center;
+  color: rgb(128, 3, 3, 100%);
+  margin: 50px 0px 20px 0px;
+}
+hr {
+  border: 1px solid white;
+}
+.serch-btn {
+  padding: 10px 20px;
+  background-color: rgb(128, 3, 3, 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.input {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 90px 10px 10px;
+  margin: 0px 15px;
+  color: black;
+}
+#cars {
+  border: 1 solid rgb(128, 3, 3, 100%);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 0px 15px;
+}
+.quots {
+  background-color: white;
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  padding: 0px 300px;
+}
