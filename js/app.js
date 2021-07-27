@@ -1,6 +1,7 @@
 const apiUrl = "https://animechan.vercel.app/api";
 
 const searchButton = document.querySelector('#search-button');
+
 let currentPage = 1;
 
 // fetch data from API
@@ -21,8 +22,15 @@ function fetch (url, callback) {
 }
 
 // get quotes from API
-function getQuotes(title,page, titleType){
-    const url = `${apiUrl}/quotes/${titleType}?title=${title}&page=${page}`;
+function getQuotes(key,page, searchType){
+
+    let url = `${apiUrl}/quotes`;
+
+    if(searchType === "anime"){
+        url = `${apiUrl}/quotes/${searchType}?title=${key}&page=${page}`;
+    }else if(searchType === "character"){
+        url = `${apiUrl}/quotes/${searchType}?name=${key}&page=${page}`;
+    }
 
     fetch(url,(response) => {
 
@@ -35,16 +43,35 @@ function getQuotes(title,page, titleType){
 
 // show quotes in DOM
 function showQuotes(quotes){
-    console.log(quotes);
+    
+    const list = document.querySelector('#quots-list');
 
-    // dom rendering
+    list.innerHTML = '';
+
+    quotes.forEach(q => {
+        
+        const p = document.createElement('p');
+        p.textContent = q.quote;
+        p.classList.add('quote');
+
+        const author = document.createElement('cite');
+        author.innerHTML = `<strong>${q.character}</strong> from <strong>${q.anime}</strong>`;
+        author.classList.add('author');
+
+        const quote = document.createElement('div');
+        quote.classList.add('quote-card');
+        quote.appendChild(p);
+        quote.appendChild(author);
+        list.appendChild(quote);
+
+    });
 }
 
 
 // search for quotes
 const search = () => {
-    const titleType = document.querySelector('#title-type');
-    const title = document.querySelector('#title');
+    const titleType = document.querySelector('#title-type').value;
+    const title = document.querySelector('#title').value;
 
     getQuotes(title,currentPage,titleType);
 }
@@ -65,7 +92,8 @@ function previusPage(){
     search();
 }
 
-search();
+searchButton.addEventListener('click',(e) => {
+    e.preventDefault();
 
-
-// searchButton.addEventListener('click',search);
+    search();
+});
