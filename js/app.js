@@ -33,7 +33,6 @@ function getQuotes(key,page, searchType){
     }
 
     fetch(url,(response) => {
-
         showQuotes(response);
    
     });
@@ -43,7 +42,6 @@ function getQuotes(key,page, searchType){
 
 // show quotes in DOM
 function showQuotes(quotes){
-    
     const list = document.querySelector('#quots-list');
 
     list.innerHTML = '';
