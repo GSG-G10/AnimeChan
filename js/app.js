@@ -1,8 +1,6 @@
 const apiUrl = "https://animechan.vercel.app/api";
 
 const searchButton = document.querySelector('#search-button');
-const previusButton = document.querySelector('#previous-button');
-const nextButton = document.querySelector('#next-button');
 
 let currentPage = 1;
 
@@ -65,6 +63,28 @@ function showQuotes(quotes){
         list.appendChild(quote);
 
     });
+
+    const previusButton = document.createElement('button');
+    previusButton.classList.add('previous');
+    previusButton.id = "previous-button";
+    previusButton.textContent = "< Previous";
+    previusButton.onclick = () => {
+        previusPage();
+    };
+
+    const nextButton = document.createElement('button');
+    nextButton.classList.add('next');
+    nextButton.id = "next-button";
+    nextButton.textContent = "Next >";
+    nextButton.onclick = () => {
+        nextPage();
+    };
+
+    const paginationDiv = document.querySelector('#pagination');
+    paginationDiv.innerHTML = '';
+    paginationDiv.appendChild(previusButton);
+    paginationDiv.appendChild(nextButton);
+
 }
 
 
@@ -98,14 +118,58 @@ searchButton.addEventListener('click',(e) => {
     search();
 });
 
-previusButton.addEventListener('click', (e) => {
-    e.preventDefault();
 
-    previusPage();
-});
 
-nextButton.addEventListener('click', (e) => {
-    e.preventDefault();
+var modal = document.getElementById("myModal");
 
-    nextPage();
-});
+var btn = document.getElementById("modal-btn");
+
+btn.onclick = function() {
+    modal.style.display = "block";
+
+    const url = `${apiUrl}/random`;
+
+    modal.innerHTML = '';
+
+    fetch(url, (response) =>{
+
+        showSingleQuote(response,modal);
+    
+    });
+}
+
+
+function showSingleQuote(q,modal){
+
+    const span = document.createElement('span');
+    span.classList.add('close');
+    span.textContent = 'X';
+    span.onclick = () => {
+        modal.style.display = "none";
+    }
+
+    const p = document.createElement('p');
+    p.textContent = q.quote;
+    p.classList.add('quote');
+
+    const author = document.createElement('cite');
+    author.innerHTML = `<strong>${q.character}</strong> from <strong>${q.anime}</strong>`;
+    author.classList.add('author');
+
+    const quote = document.createElement('div');
+    quote.classList.add('quote-card');
+
+    quote.appendChild(span);
+    quote.appendChild(p);
+    quote.appendChild(author);
+
+    modal.appendChild(quote);
+
+
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
