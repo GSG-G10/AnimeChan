@@ -1,6 +1,8 @@
 const apiUrl = "https://animechan.vercel.app/api";
 
 const searchButton = document.querySelector('#search-button');
+const previusButton = document.querySelector('#previous-button');
+const nextButton = document.querySelector('#next-button');
 
 let currentPage = 1;
 
@@ -13,7 +15,7 @@ function fetch (url, callback) {
         var response = JSON.parse(xhr.responseText);
         return callback(response);
       }else{
-        console.log('error');
+        alert('There is no Results');
       }
     });
   
@@ -33,7 +35,6 @@ function getQuotes(key,page, searchType){
     }
 
     fetch(url,(response) => {
-
         showQuotes(response);
    
     });
@@ -43,7 +44,6 @@ function getQuotes(key,page, searchType){
 
 // show quotes in DOM
 function showQuotes(quotes){
-    
     const list = document.querySelector('#quots-list');
 
     list.innerHTML = '';
@@ -96,4 +96,16 @@ searchButton.addEventListener('click',(e) => {
     e.preventDefault();
 
     search();
+});
+
+previusButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    previusPage();
+});
+
+nextButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    nextPage();
 });
