@@ -1,6 +1,6 @@
 # AnimeChan :
-Quots from animi : link : https://gsg-g10.github.io/AnimeChan/.
-Quots from animi for all animi lovers .
+Live link : https://gsg-g10.github.io/AnimeChan/.
+Quotes from anime for all anime lovers  out there.
 
 # Team members :
 
@@ -9,22 +9,18 @@ Quots from animi for all animi lovers .
 
 # Project Description :
 
-A page that displays quotes from anime characters, where you can enter the name of the character or anime, and a list of all his quotes will appear.
+Home Page displays a search bar with a menu to choose "Anime" or "Character", then enter anime name or character name to get  quotes related to your search. 
+Below a list of all quotes will appear.
 
 # User Journey :
 
-- There is only one page the " main page " , in the main page the user will choose who quots want from a character in an animi or all the quots in an animi , then he will wright the name of the charachter or the animi and then click on the search button , next it will apear all the quots of the animi or character .
-
-# stretch goals:
-
-- working with the APIs .
-
+- There is only one page the " main page " , in the main page the user can use the search bar menu to type in which anime character or anime quote desires to get .
 
 # Installing the project locally:
 
-- `git clone URL`
-- `cd AnimeChan`
-- `go live server`
+- git clone URL
+- cd AnimeChan
+- go live server
 
 # Tech Stack:
 
