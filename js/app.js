@@ -97,20 +97,3 @@ searchButton.addEventListener('click',(e) => {
 
     search();
 });
-// const cards_element = document.getElementById("qcards");
-// const pagination_element = document.getElementById("pagination");
-// let current_page = 1;
-// let rows = 5;
-// function DisplaytList (items ,wrapper,rows_per_page,page ){
-//     wrapper.innerHTML="";
-//     page--;
-
-//     let loop_sart = rows_per_page =page;
-//     let paginatedItems = items.slice(loop_sart,loop_sart
-//         + rows_per_page);
-//         console.log(paginatedItems);
-//     for (let i = loop_sart; i < loop_sart+rows_per_page; i++){
-
-//     }
-// }
-// DisplaytList( getQuotes ,cards_element , rows, current_page)

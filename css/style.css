@@ -56,3 +56,29 @@ hr {
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
+.page{
+    border: white;
+    display: flex;
+    justify-content: center;
+   
+}
+.previous{
+    padding: 10px 20px;
+  background-color: rgb(128, 3, 3, 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0px 30px ;
+}
+.next{
+    padding: 10px 20px;
+    background-color: rgb(128, 3, 3, 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0px 30px ;
+    
+}
+
