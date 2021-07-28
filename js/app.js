@@ -115,6 +115,8 @@ function previusPage(){
 searchButton.addEventListener('click',(e) => {
     e.preventDefault();
 
+    currentPage = 1;
+
     search();
 });
 
